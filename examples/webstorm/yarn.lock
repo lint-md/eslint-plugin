@@ -269,10 +269,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-plugin-lint-md@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-lint-md/download/eslint-plugin-lint-md-0.0.2.tgz?cache=0&sync_timestamp=1615218809151&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-lint-md%2Fdownload%2Feslint-plugin-lint-md-0.0.2.tgz#4baa35592cdb3f4813b8917caa47184db9c059d4"
-  integrity sha1-S6o1WSzbP0gTuJF8qkcYTbnAWdQ=
+eslint-plugin-lint-md@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-lint-md/download/eslint-plugin-lint-md-0.0.3.tgz#6192882c8c2621a24abd84a22d310c8f00d656f9"
+  integrity sha1-YZKILIwmIaJKvYSiLTEMjwDWVvk=
   dependencies:
     lint-md "^0.2.0"
 

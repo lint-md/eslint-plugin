@@ -25,6 +25,16 @@ module.exports = {
 }
 ```
 
+执行下面的命令尝试 lint，具体参数请根据项目实际情况进行调整：
+
+```shell
+eslint --ext .md ./
+```
+
+效果如下：
+
+![](http://cdn.yuzzl.top/blog/20210309114543.png)
+
 ## IDE 支持
 
 ### 在 vscode 中使用 eslint-plugin-lint-md

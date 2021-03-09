@@ -1,2 +1,7 @@
 .idea
 .vscode
+*.log
+node_modules
+
+# 忽略自动生成的 rules
+src/rules/noArgsRules

@@ -1,0 +1,17 @@
+{
+  "name": "eslint-plugin-lint-md",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lint-md/eslint-plugin-lint-md.git",
+  "author": "coderyzl <yuzl1123@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lint-md": "^0.2.0"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "sync-rules": "node ./src/ruleGenerator.js"
+  }
+}

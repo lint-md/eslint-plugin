@@ -1,5 +1,7 @@
+# IDE 配置文件
 .idea
-.vscode
+./.vscode
+
 *.log
 node_modules
 

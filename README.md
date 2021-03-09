@@ -21,25 +21,20 @@ yarn add eslint eslint-plugin-lint-md
 
 ```javascript
 module.exports = {
-  extends: ['plugin:lint-md/recommend']
-}
-```
-
-**注意**
-
-如果当前项目已经配置了 `eslint`, 并且已经配置了其它的 `parser`，我们需要追加下面的配置，否则 eslint 会报 `parse error`：
-
-```javascript
-module.exports = {
   extends: ['plugin:lint-md/recommend'],
-  // ---- 追加开始 ----
   overrides: [
     {
       files: ['*.md'],
-      parser: 'eslint-plugin-lint-md/src/parser'
+      parser: 'eslint-plugin-lint-md/src/parser',
+      rules: {
+        // 在这里覆盖已有的 rules
+        'lint-md/no-long-code': [2, {
+          "length": 100,
+          "exclude": []
+        }]
+      }
     }
   ],
-  // ---- 追加结束 ----
 }
 ```
 

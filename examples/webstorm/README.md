@@ -1,10 +1,4 @@
-# 在 vscode 中使用 eslint-plugin-lint-md
-
-## 安装 eslint 插件
-
-在 vscode 插件商店中搜索 `eslint`，安装之：
-
-![](http://cdn.yuzzl.top/blog/20210309102904.png)
+# 在 webstorm 中使用 eslint-plugin-lint-md
 
 ## 设置 .md 后缀支持
 

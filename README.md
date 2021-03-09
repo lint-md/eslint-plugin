@@ -6,12 +6,18 @@
 
 ## 安装
 
-> **npm i eslint eslint-plugin-lint-md**
+```shell
+# use npm
+npm install eslint eslint-plugin-lint-md
 
+# use yarn
+yarn add eslint eslint-plugin-lint-md
+```
 
 ## 使用
 
-为你的 `.eslintrc.js` 追加以下配置，其中 `rules` 请参考 [lint-md](https://github.com/lint-md/lint-md#%E6%A3%80%E6%9F%A5%E7%B1%BB%E5%9E%8B)
+为你的 `.eslintrc.js` 追加以下配置，其中 `rules`
+请参考 [lint-md](https://github.com/lint-md/lint-md#%E6%A3%80%E6%9F%A5%E7%B1%BB%E5%9E%8B)
 
 ```javascript
 module.exports = {
@@ -36,20 +42,49 @@ module.exports = {
 }
 ```
 
-如果你喜欢 `vscode`，那么请安装 `eslint` 插件，然后为 `settings.json` 添加以下配置：
+## IDE 支持
+
+### 在 vscode 中使用 eslint-plugin-lint-md
+
+#### 安装 eslint 插件
+
+在 vscode 插件商店中搜索 `eslint`，安装之：
+
+![](http://cdn.yuzzl.top/blog/20210309102904.png)
+
+#### 追加配置
+
+- 在项目根目录下新建 `.vscode` 目录，然后新建 `settings.json` 文件（如果已有，忽略此步骤）
+- 追加如下配置，让 eslint 插件审查 markdown 文件：
 
 ```json
 {
-    "eslint.validate": ["markdown"]
+  "eslint.validate": [
+    "markdown"
+  ]
 }
 ```
 
+![](http://cdn.yuzzl.top/blog/20210309103150.png)
 
-如果你喜欢 `webstorm`，请按下图配置以支持 `.md` 后缀文件：
+#### 查看效果
 
-![](http://cdn.yuzzl.top/blog/20210309004301.png)
+最终效果如图所示：
 
-> TIP：webstorm 2021.1 版本开始支持非 js 的扩展名文件（用户可自行配置），现在这个版本处于测试阶段，应该离 release 不远了。
+![](http://cdn.yuzzl.top/blog/20210309103609.png)
 
+### 在 webstorm 中使用 eslint-plugin-lint-md
 
-**hope you enjoy it！**
+#### 设置 .md 后缀支持
+
+- 进入 `file -> settings -> languages & frameworks -> JavaScript -> Code Quality Tools -> ESLint` 设置项
+- 在 `Run for files` 一栏中添加 `.md` 后缀。
+- 点击 ok 保存设置
+
+![](http://cdn.yuzzl.top/blog/20210309104303.png)
+
+#### 查看效果
+
+最终效果如图所示：
+
+![](http://cdn.yuzzl.top/blog/20210309104035.png)

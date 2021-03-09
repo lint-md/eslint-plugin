@@ -28,23 +28,23 @@ module.exports = {
         range: [0, 0],
         body: [
           {
-            "type": "ExpressionStatement",
-            "start": 0,
-            "end": 1,
-            "range": [
+            'type': 'ExpressionStatement',
+            'start': 0,
+            'end': 1,
+            'range': [
               0,
               1
             ],
-            "expression": {
-              "type": "Literal",
-              "start": 0,
-              "end": 1,
-              "range": [
+            'expression': {
+              'type': 'Literal',
+              'start': 0,
+              'end': 1,
+              'range': [
                 0,
                 1
               ],
-              "value": code,
-              "raw": "1"
+              'value': code,
+              'raw': '1'
             }
           }
         ],
@@ -52,5 +52,5 @@ module.exports = {
         comments: []
       }
     }
-  },
+  }
 }

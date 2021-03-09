@@ -25,6 +25,24 @@ module.exports = {
 }
 ```
 
+**注意**
+
+如果当前项目已经配置了 `eslint`, 并且已经配置了其它的 `parser`，我们需要追加下面的配置，否则 eslint 会报 `parse error`：
+
+```javascript
+module.exports = {
+  extends: ['plugin:lint-md/recommend'],
+  // ---- 追加开始 ----
+  overrides: [
+    {
+      files: ['*.md'],
+      parser: 'eslint-plugin-lint-md/src/parser'
+    }
+  ],
+  // ---- 追加结束 ----
+}
+```
+
 执行下面的命令尝试 lint，具体参数请根据项目实际情况进行调整：
 
 ```shell

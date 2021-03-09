@@ -1,15 +1,15 @@
-# 在 webstorm 中使用 eslint-plugin-lint-md
+# webstorm 项目示例
 
-## 设置 .md 后缀支持
+## 安装依赖
 
-- 进入 `file -> settings -> languages & frameworks -> JavaScript -> Code Quality Tools -> ESLint` 设置项
-- 在 `Run for files` 一栏中添加 `.md` 后缀。
-- 点击 ok 保存设置
+```shell
+yarn install
+```
 
-![](http://cdn.yuzzl.top/blog/20210309104303.png)
+## 尝试 lint
 
-## 查看效果
+```shell
+yarn lint
+```
 
-最终效果如图所示：
-
-![](http://cdn.yuzzl.top/blog/20210309104035.png)
+> 具体的配置请参阅根目录的 README.md

@@ -1,11 +1,12 @@
 {
-  "name": "vscode",
+  "name": "vscode-example",
+  "private": true,
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "eslint": "^7.21.0",
-    "eslint-plugin-lint-md": "^0.0.3"
+    "@lint-md/eslint-plugin": "0.0.1"
   },
   "scripts": {
     "lint": "eslint --ext .md ./"

@@ -1,17 +1,17 @@
-# eslint-plugin-lint-md
+# @lint-md/eslint-plugin
 
-依靠各个 IDE 对 eslint 不错的支持，让 lint-md 玩家也能得到愉悦的文档编写体验。
+:sunglasses: 基于 @lint-md，提供 eslint-plugin，让 lint-md 玩家得到愉悦的文档编写体验。
 
-![](https://user-images.githubusercontent.com/56540811/110348136-48bb7480-806c-11eb-89ec-ad9ee2ab42f1.png)
+![](http://cdn.yuzzl.top/blog/20210309172714.png)
 
 ## 安装
 
 ```shell
 # use npm
-npm install eslint eslint-plugin-lint-md
+npm install eslint @lint-md/eslint-plugin
 
 # use yarn
-yarn add eslint eslint-plugin-lint-md
+yarn add eslint @lint-md/eslint-plugin
 ```
 
 ## 使用
@@ -21,14 +21,14 @@ yarn add eslint eslint-plugin-lint-md
 
 ```javascript
 module.exports = {
-  extends: ['plugin:lint-md/recommend'],
+  extends: ['plugin:@lint-md/recommend'],
   overrides: [
     {
       files: ['*.md'],
-      parser: 'eslint-plugin-lint-md/src/parser',
+      parser: '@lint-md/eslint-plugin/src/parser',
       rules: {
         // 在这里覆盖已有的 rules
-        'lint-md/no-long-code': [2, {
+        '@lint-md/no-long-code': [2, {
           "length": 100,
           "exclude": []
         }]
@@ -50,7 +50,7 @@ eslint --ext .md ./
 
 ## IDE 支持
 
-### 在 vscode 中使用 eslint-plugin-lint-md
+### 在 vscode 中使用
 
 #### 安装 eslint 插件
 
@@ -79,11 +79,11 @@ eslint --ext .md ./
 
 ![](http://cdn.yuzzl.top/blog/20210309103609.png)
 
-### 在 webstorm 中使用 eslint-plugin-lint-md
+### 在 webstorm 中使用
 
 #### 设置 .md 后缀支持
 
-- 进入 `file -> settings -> languages & frameworks -> JavaScript -> Code Quality Tools -> ESLint` 设置项
+- 进入 `file > settings > languages & frameworks > JavaScript > Code Quality Tools > ESLint` 设置项
 - 在 `Run for files` 一栏中添加 `.md` 后缀。
 - 点击 ok 保存设置
 
@@ -94,3 +94,6 @@ eslint --ext .md ./
 最终效果如图所示：
 
 ![](http://cdn.yuzzl.top/blog/20210309104035.png)
+
+> TIP: webstorm 2021.1 及以上版本的 eslint 插件支持自定义检测文件后缀名，目前为 beta 版本，相信不久就会 release 了。
+> 欲了解详细信息，请参阅[这里](https://blog.jetbrains.com/webstorm/2021/02/webstorm-2021-1-eap-5/)

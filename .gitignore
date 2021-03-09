@@ -6,4 +6,8 @@
 node_modules
 
 # 忽略自动生成的 rules
-src/rules/noArgsRules
+src/rules/no-args-rules/*
+!src/rules/no-args-rules/README.md
+
+# lock files
+*.lock

@@ -12,6 +12,6 @@
     "src"
   ],
   "scripts": {
-    "sync-rules": "node ./src/ruleGenerator.js"
+    "sync-rules": "node src/rule-gererator.js"
   }
 }

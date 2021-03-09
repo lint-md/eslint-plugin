@@ -6,7 +6,7 @@
  * Email: yuzl1123@163.com
  */
 
-const rules = require('./rules/index')
+const rules = require('./rules')
 
 module.exports = {
   processors: {

@@ -1,5 +1,5 @@
 /*
- * File: ruleGenerator.js
+ * File: rule-gererator.js
  * Description: rules 生成器
  *
  * 对于一些无参 rules(几乎所有)
@@ -18,8 +18,8 @@ const { getTemplateHeaderComment } = require('./utils')
 const { NOT_SUPPORTED_FIX } = require('./constants')
 
 // paths
-const templatePath = path.resolve(__dirname, './ruleTemplate.js')
-const eslintRuleDir = path.resolve(__dirname, './rules/noArgsRules')
+const templatePath = path.resolve(__dirname, './rule-template.js')
+const eslintRuleDir = path.resolve(__dirname, './rules/no-args-rules')
 
 // 生成 eslint rules 文件
 const generateRuleCode = () => {
@@ -36,7 +36,7 @@ const generateRuleCode = () => {
       .replace(/\$FIXABLE\$/g, NOT_SUPPORTED_FIX.indexOf(name) >= 0 ? false : '"code"')
 
     fs.writeFileSync(path.resolve(eslintRuleDir, `${name}.js`), `${comment}${result}`)
-    data += `  '${name}': require('./noArgsRules/${name}'),\n`
+    data += `  '${name}': require('./no_args_rules/${name}'),\n`
   })
   data += '}'
 

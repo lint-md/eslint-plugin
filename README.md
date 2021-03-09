@@ -16,29 +16,12 @@ yarn add eslint eslint-plugin-lint-md
 
 ## 使用
 
-为你的 `.eslintrc.js` 追加以下配置，其中 `rules`
-请参考 [lint-md](https://github.com/lint-md/lint-md#%E6%A3%80%E6%9F%A5%E7%B1%BB%E5%9E%8B)
+为你的 `.eslintrc.js`
+追加以下配置，关于规则的详细信息请参考 [lint-md](https://github.com/lint-md/lint-md#%E6%A3%80%E6%9F%A5%E7%B1%BB%E5%9E%8B)
 
 ```javascript
 module.exports = {
-  plugins: [
-    'lint-md'
-  ],
-  overrides: [
-    {
-      files: ['*.md'],
-      parser: 'eslint-plugin-lint-md/src/parser',
-      rules: {
-        // rules 在这里自定义
-        'lint-md/space-round-alphabet': ["warn"],
-        'lint-md/no-empty-list': ["warn"],
-        'lint-md/no-long-code': [2, {
-          "length": 10,
-          "exclude": []
-        }]
-      }
-    },
-  ]
+  extends: ['plugin:lint-md/recommend']
 }
 ```
 

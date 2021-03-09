@@ -7,6 +7,7 @@
  */
 
 const rules = require('./rules/index')
+
 module.exports = {
   processors: {
     '.md': {
@@ -19,5 +20,40 @@ module.exports = {
       supportsAutofix: true
     }
   },
-  rules: rules
+  rules: rules,
+  configs: {
+    // 提供默认配置
+    recommend: {
+      plugins: ['lint-md'],
+      overrides: [
+        {
+          files: ['*.md'],
+          parser: './parser',
+          rules: {
+            'lint-md/no-empty-blockquote': ['error'],
+            'lint-md/no-empty-code-lang': ['error'],
+            'lint-md/no-empty-code': ['error'],
+            'lint-md/no-empty-delete': ['error'],
+            'lint-md/no-empty-inlinecode': ['error'],
+            'lint-md/no-empty-list': ['error'],
+            'lint-md/no-empty-url': ['error'],
+            'lint-md/no-fullwidth-number': ['error'],
+            'lint-md/no-multiple-space-blockquote': ['error'],
+            'lint-md/no-space-in-emphasis': ['error'],
+            'lint-md/no-space-in-inlinecode': ['error'],
+            'lint-md/no-space-in-link': ['error'],
+            'lint-md/no-special-characters': ['error'],
+            'lint-md/no-trailing-punctuation': ['error'],
+            'lint-md/space-round-alphabet': ['error'],
+            'lint-md/space-round-number': ['error'],
+            'lint-md/use-standard-ellipsis': ['error'],
+            'lint-md/no-long-code': ['error', {
+              'length': 100,
+              'exclude': []
+            }]
+          }
+        }
+      ]
+    }
+  }
 }

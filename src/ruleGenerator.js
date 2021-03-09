@@ -26,8 +26,8 @@ const generateRuleCode = () => {
   const template = fs.readFileSync(templatePath)
   const rules = getTotalRuleNames()
   let data = `module.exports = {\n  'no-long-code': require('./no-long-code'),\n`
-
   // 生成 rules && index.js
+
   rules.forEach(name => {
     const comment = getTemplateHeaderComment(name)
 

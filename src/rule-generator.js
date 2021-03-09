@@ -1,5 +1,5 @@
 /*
- * File: rule-gererator.js
+ * File: rule-generator.js
  * Description: rules 生成器
  *
  * 对于一些无参 rules(几乎所有)
@@ -36,7 +36,7 @@ const generateRuleCode = () => {
       .replace(/\$FIXABLE\$/g, NOT_SUPPORTED_FIX.indexOf(name) >= 0 ? false : '"code"')
 
     fs.writeFileSync(path.resolve(eslintRuleDir, `${name}.js`), `${comment}${result}`)
-    data += `  '${name}': require('./no_args_rules/${name}'),\n`
+    data += `  '${name}': require('./no-args-rules/${name}'),\n`
   })
   data += '}'
 

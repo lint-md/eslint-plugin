@@ -1,12 +1,12 @@
 {
-  "name": "eslint-plugin-lint-md",
-  "version": "0.0.3",
+  "name": "@lint-md/eslint-plugin",
+  "version": "0.0.1",
   "main": "src/index.js",
   "repository": "https://github.com/lint-md/eslint-plugin-lint-md.git",
   "author": "coderyzl <yuzl1123@163.com>",
   "license": "MIT",
   "scripts": {
-    "sync-rules": "node src/rule-gererator.js",
+    "sync-rules": "node src/rule-generator.js",
     "husky:prepare": "husky install",
     "commitlint:lint": "commitlint -e ./.git/COMMIT_EDITMSG"
   },

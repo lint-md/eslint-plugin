@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "eslint": "^7.21.0",
-    "eslint-plugin-lint-md": "^0.0.3"
+    "eslint": "^7.21.0"
   },
   "scripts": {
     "lint": "eslint --ext .md ./"

@@ -5,7 +5,7 @@
  *
  * Please refer to the lint-md documentation for details about this rule
  *
- * @created: Tue Mar 09 2021 
+ * @created: Thu Mar 11 2021 
  * @see: https://github.com/lint-md/lint-md
  */
 

@@ -1,6 +1,6 @@
 {
   "name": "@lint-md/eslint-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/index.js",
   "repository": "https://github.com/lint-md/eslint-plugin.git",
   "author": "yuzhanglong <yuzl1123@163.com>",

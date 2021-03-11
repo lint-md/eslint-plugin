@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "eslint": "^7.21.0",
-    "@lint-md/eslint-plugin": "0.0.1"
+    "@lint-md/eslint-plugin": "0.0.2"
   },
   "scripts": {
     "lint": "eslint --ext .md ./"

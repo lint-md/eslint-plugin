@@ -16,4 +16,5 @@ module.exports = {
       }
     }
   ],
+  root: true
 }

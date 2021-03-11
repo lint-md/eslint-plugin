@@ -31,7 +31,7 @@ module.exports = {
   },
   create(context) {
     return {
-      Literal(node) {
+      MarkdownNode(node) {
         if (node.value) {
           // 调用 lint 函数
           const opt = Array.isArray(context.options) && context.options.length ? context.options[0] : {}

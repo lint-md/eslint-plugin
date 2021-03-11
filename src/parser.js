@@ -36,7 +36,7 @@ module.exports = {
               1
             ],
             'expression': {
-              'type': 'Literal',
+              'type': 'MarkdownNode',
               'start': 0,
               'end': 1,
               'range': [

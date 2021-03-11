@@ -24,7 +24,7 @@ module.exports = {
     }
 
     return {
-      Literal(node) {
+      MarkdownNode(node) {
         if (node.value) {
           // 调用 lint 函数
           const errors = lint(node.value)

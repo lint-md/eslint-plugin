@@ -8,7 +8,8 @@
  * Author: yuzhanglong
  * Email: yuzl1123@163.com
  */
-const { lint, getDescription } = require('lint-md')
+import { getDescription, lint } from '@lint-md/core'
+
 
 module.exports = {
   meta: {

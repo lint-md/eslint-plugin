@@ -8,13 +8,7 @@
 
 
 // 不可以 fix 的 rule
-const NOT_SUPPORTED_FIX = ['no-long-code']
+export const NOT_SUPPORTED_FIX = ['no-long-code']
 
 // 带参 rules，此类 rules 单独处理，不通过模板写入
-const ARGS_RULES = ['no-long-code']
-
-
-module.exports = {
-  NOT_SUPPORTED_FIX,
-  ARGS_RULES
-}
+export const ARGS_RULES = ['no-long-code']

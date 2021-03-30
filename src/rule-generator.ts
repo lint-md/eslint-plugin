@@ -11,11 +11,11 @@
  * Email: yuzl1123@163.com
  */
 
-const path = require('path')
-const fs = require('fs')
-const { getTotalRuleNames } = require('./utils')
-const { getTemplateHeaderComment } = require('./utils')
-const { NOT_SUPPORTED_FIX } = require('./constants')
+import * as path from 'path'
+import * as fs from 'fs'
+import { getTemplateHeaderComment, getTotalRuleNames } from './utils'
+import { NOT_SUPPORTED_FIX } from './constants'
+
 
 // paths
 const templatePath = path.resolve(__dirname, './rule-template.js')
@@ -33,6 +33,7 @@ const generateRuleCode = () => {
 
     const result = template.toString()
       .replace(/\$MD_LINT_RULE_NAME\$/g, name)
+      // @ts-ignore
       .replace(/\$FIXABLE\$/g, NOT_SUPPORTED_FIX.indexOf(name) >= 0 ? false : '"code"')
 
     fs.writeFileSync(path.resolve(eslintRuleDir, `${name}.js`), `${comment}${result}`)

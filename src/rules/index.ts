@@ -5,11 +5,11 @@
  *
  * Please refer to the lint-md documentation for details about this rule
  *
- * @created: Thu Mar 11 2021 
+ * @created: Thu Mar 11 2021
  * @see: https://github.com/lint-md/lint-md
  */
 
-module.exports = {
+export const Rules = {
   'no-long-code': require('./no-long-code'),
   'no-empty-blockquote': require('./no-args-rules/no-empty-blockquote'),
   'no-empty-code-lang': require('./no-args-rules/no-empty-code-lang'),
@@ -27,5 +27,5 @@ module.exports = {
   'no-trailing-punctuation': require('./no-args-rules/no-trailing-punctuation'),
   'space-round-alphabet': require('./no-args-rules/space-round-alphabet'),
   'space-round-number': require('./no-args-rules/space-round-number'),
-  'use-standard-ellipsis': require('./no-args-rules/use-standard-ellipsis'),
+  'use-standard-ellipsis': require('./no-args-rules/use-standard-ellipsis')
 }

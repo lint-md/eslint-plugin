@@ -36,6 +36,10 @@ const generateRuleCode = () => {
       // @ts-ignore
       .replace(/\$FIXABLE\$/g, NOT_SUPPORTED_FIX.indexOf(name) >= 0 ? false : '"code"')
 
+    if (!fs.existsSync(path.resolve(eslintRuleDir))) {
+      fs.mkdirSync(path.resolve(eslintRuleDir))
+    }
+
     fs.writeFileSync(path.resolve(eslintRuleDir, `${name}.js`), `${comment}${result}`)
     data += `  '${name}': require('./no-args-rules/${name}'),\n`
   })

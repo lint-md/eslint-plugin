@@ -6,12 +6,12 @@
   "author": "yuzhanglong <yuzl1123@163.com>",
   "license": "MIT",
   "scripts": {
-    "sync-rules": "node src/rule-generator.ts",
+    "sync-rules": "node lib/rule-generator.js",
     "husky:prepare": "husky install",
     "commitlint:lint": "commitlint -e ./.git/COMMIT_EDITMSG",
     "lint": "eslint --ext .ts --ext .tsx --max-warnings 0 ./src",
     "lib:cjs": "tsc -p tsconfig.json --target ESNext --module commonjs --outDir lib",
-    "build": "run-p lib:*",
+    "build": "npm run clean && run-p lib:*",
     "clean": "rimraf lib esm"
   },
   "dependencies": {
@@ -32,7 +32,6 @@
     "eslint": "^7.0.0"
   },
   "files": [
-    "esm",
     "lib",
     "src"
   ]

@@ -27,7 +27,7 @@ export const getTemplateHeaderComment = (rule?: string, time?: string, command =
 
 // 获取 lint-md 下的所有 rules
 export const getTotalRuleNames = () => {
-  const ruleDir = path.dirname(require.resolve('lint-md/lib/lint-rules'))
+  const ruleDir = path.dirname(require.resolve('@lint-md/core/lib/lint-rules'))
   const ruleFiles = fs.readdirSync(ruleDir)
   return ruleFiles
     .filter(res => (res !== 'index.js' && res.endsWith('.js')))

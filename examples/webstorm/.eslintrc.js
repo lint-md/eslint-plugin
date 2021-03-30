@@ -5,7 +5,7 @@ module.exports = {
   overrides: [
     {
       files: ['*.md'],
-      parser: '@lint-md/eslint-plugin/src/parser',
+      parser: '@lint-md/eslint-plugin/lib/parser',
       extends: ['plugin:@lint-md/recommend'],
       rules: {
         // 在这里覆盖已有的 rules

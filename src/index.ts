@@ -6,7 +6,7 @@
  * Email: yuzl1123@163.com
  */
 
-const rules = require('./rules')
+import { Rules } from './rules'
 
 module.exports = {
   processors: {
@@ -20,7 +20,7 @@ module.exports = {
       supportsAutofix: true
     }
   },
-  rules: rules,
+  rules: Rules,
   configs: {
     // 提供默认配置
     recommend: {

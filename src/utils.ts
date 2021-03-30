@@ -6,12 +6,13 @@
  * Email: yuzl1123@163.com
  */
 
-const fs = require('fs')
-const path = require('path')
-const { ARGS_RULES } = require('./constants')
+import * as fs from 'fs'
+import * as path from 'path'
+import { ARGS_RULES } from './constants'
+
 
 // 模板导出文件头部注释信息输出
-const getTemplateHeaderComment = (rule, time, command = 'npm run sync-rules') => {
+export const getTemplateHeaderComment = (rule?: string, time?: string, command = 'npm run sync-rules') => {
   return `/*
  * IMPORTANT!
  * This file has been automatically generated,
@@ -25,16 +26,11 @@ const getTemplateHeaderComment = (rule, time, command = 'npm run sync-rules') =>
 }
 
 // 获取 lint-md 下的所有 rules
-const getTotalRuleNames = () => {
-  const ruleDir = path.dirname(require.resolve('lint-md/lib/lint-rules'))
+export const getTotalRuleNames = () => {
+  const ruleDir = path.dirname(require.resolve('@lint-md/core/lib/lint-rules'))
   const ruleFiles = fs.readdirSync(ruleDir)
   return ruleFiles
     .filter(res => (res !== 'index.js' && res.endsWith('.js')))
     .map(data => data.slice(0, -3))
     .filter(data => ARGS_RULES.indexOf(data) < 0)
-}
-
-module.exports = {
-  getTemplateHeaderComment,
-  getTotalRuleNames
 }

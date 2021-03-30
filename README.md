@@ -25,7 +25,8 @@ module.exports = {
   overrides: [
     {
       files: ['*.md'],
-      parser: '@lint-md/eslint-plugin/src/parser',
+      // 0.0.x 版本为 '@lint-md/eslint-plugin/src/parser'
+      parser: '@lint-md/eslint-plugin/lib/parser',
       rules: {
         // 在这里覆盖已有的 rules
         '@lint-md/no-long-code': [2, {
@@ -97,3 +98,7 @@ eslint --ext .md ./
 
 > TIP: webstorm 2021.1 及以上版本的 eslint 插件支持自定义检测文件后缀名，目前为 beta 版本，相信不久就会 release 了。
 > 欲了解详细信息，请参阅[这里](https://blog.jetbrains.com/webstorm/2021/02/webstorm-2021-1-eap-5/)
+
+## 其它案例
+
+更多案例及配置文件请移步仓库 `examples` 目录。 

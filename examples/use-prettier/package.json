@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@lint-md/eslint-plugin": "0.0.3",
+    "@lint-md/eslint-plugin": "0.1.0",
     "eslint": "^7.21.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1"

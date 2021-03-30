@@ -1,7 +1,8 @@
-const { lint, getDescription } = require('lint-md')
-const baseFixer = require('lint-md/lib/fix').fix
+import { getDescription, lint, fix as baseFixer } from '@lint-md/core'
 
-// 该 rule 是否可以 fix
+// 该 rule 是否可以 fix，供模板替换
+// @ts-ignore
+// eslint-disable-next-line no-undef
 const FIXABLE = $FIXABLE$
 
 module.exports = {

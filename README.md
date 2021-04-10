@@ -96,8 +96,7 @@ eslint --ext .md ./
 
 ![](http://cdn.yuzzl.top/blog/20210309104035.png)
 
-> TIP: webstorm 2021.1 及以上版本的 eslint 插件支持自定义检测文件后缀名，目前为 beta 版本，相信不久就会 release 了。
-> 欲了解详细信息，请参阅[这里](https://blog.jetbrains.com/webstorm/2021/02/webstorm-2021-1-eap-5/)
+> TIP: webstorm 2021.1 及以上版本的 eslint 插件支持自定义检测文件后缀名
 
 ## 其它案例
 

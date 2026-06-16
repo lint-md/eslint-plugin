@@ -20,7 +20,7 @@ jobs:
           node-version: '24'
           cache: 'pnpm'
 
-      - run: pnpm install
+      - run: pnpm install --ignore-scripts
       - uses: wagoid/commitlint-github-action@v6.2.0
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules

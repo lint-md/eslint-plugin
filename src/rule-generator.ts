@@ -5,10 +5,6 @@
  * 对于一些无参 rules(几乎所有)
  * 我们直接基于 lint-md 生成相应的模板，
  * 这样无需再去花费大量时间单独写 rules
- *
- * Created: 2021-3-9 10:14:11
- * Author: yuzhanglong
- * Email: yuzl1123@163.com
  */
 
 import * as path from 'path'
@@ -49,4 +45,3 @@ const generateRuleCode = () => {
 }
 
 generateRuleCode()
-

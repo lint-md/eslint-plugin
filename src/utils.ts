@@ -1,9 +1,6 @@
 /*
  * File: utils.ts
  * Description: 工具函数模块
- * Created: 2021-3-8 21:29:46
- * Author: yuzhanglong
- * Email: yuzl1123@163.com
  */
 
 import * as fs from 'fs'
@@ -27,10 +24,10 @@ export const getTemplateHeaderComment = (rule?: string, time?: string, command =
 
 // 获取 lint-md 下的所有 rules
 export const getTotalRuleNames = () => {
-  const ruleDir = path.dirname(require.resolve('@lint-md/core/lib/lint-rules'))
+  const ruleDir = path.dirname(require.resolve('@lint-md/core/lib/rules/index'))
   const ruleFiles = fs.readdirSync(ruleDir)
   return ruleFiles
-    .filter(res => (res !== 'index.js' && res.endsWith('.js')))
+    .filter(res => (res !== 'index.js' && res.endsWith('.js') && !res.endsWith('.d.ts') && !res.endsWith('.map')))
     .map(data => data.slice(0, -3))
     .filter(data => ARGS_RULES.indexOf(data) < 0)
 }

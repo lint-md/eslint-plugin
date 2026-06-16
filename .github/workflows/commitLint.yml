@@ -6,15 +6,19 @@ jobs:
   commitlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+
       - name: Setup node.js environment
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
-      - run: yarn install
+          node-version: '20'
+          cache: 'pnpm'
+
+      - run: pnpm install
       - uses: wagoid/commitlint-github-action@v2
         env:
           NODE_PATH: ${{ github.workspace }}/node_modules

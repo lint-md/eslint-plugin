@@ -5,7 +5,7 @@
  *
  * Please refer to the lint-md documentation for details about this rule
  *
- * @created: Tue Jun 16 2026
+ * @created: Wed Jun 17 2026 
  * @see: https://github.com/lint-md/lint-md
  */
 
@@ -25,5 +25,5 @@ export const Rules = {
   'no-special-characters': require('./no-args-rules/no-special-characters'),
   'space-around-alphabet': require('./no-args-rules/space-around-alphabet'),
   'space-around-number': require('./no-args-rules/space-around-number'),
-  'use-standard-ellipsis': require('./no-args-rules/use-standard-ellipsis')
+  'use-standard-ellipsis': require('./no-args-rules/use-standard-ellipsis'),
 }

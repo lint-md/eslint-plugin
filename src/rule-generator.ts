@@ -16,13 +16,14 @@ import { NOT_SUPPORTED_FIX } from './constants'
 // paths
 const templatePath = path.resolve(__dirname, './rule-template.js')
 const eslintRuleDir = path.resolve(__dirname, './rules/no-args-rules')
+const srcRulesIndexPath = path.resolve(__dirname, '../src/rules/index.ts')
 
 // 生成 eslint rules 文件
 const generateRuleCode = () => {
   const template = fs.readFileSync(templatePath)
   const rules = getTotalRuleNames()
-  let data = `exports.Rules = {\n  'no-long-code': require('./no-long-code'),\n`
-  // 生成 rules && index.js
+  let libData = `exports.Rules = {\n  'no-long-code': require('./no-long-code'),\n`
+  let srcData = `export const Rules = {\n  'no-long-code': require('./no-long-code'),\n`
 
   rules.forEach(name => {
     const comment = getTemplateHeaderComment(name)
@@ -37,11 +38,15 @@ const generateRuleCode = () => {
     }
 
     fs.writeFileSync(path.resolve(eslintRuleDir, `${name}.js`), `${comment}${result}`)
-    data += `  '${name}': require('./no-args-rules/${name}'),\n`
+    const entry = `  '${name}': require('./no-args-rules/${name}'),\n`
+    libData += entry
+    srcData += entry
   })
-  data += '}'
+  libData += '}'
+  srcData += '}'
 
-  fs.writeFileSync(path.resolve(path.resolve(eslintRuleDir, '../'), 'index.js'), `${getTemplateHeaderComment()}${data}`)
+  fs.writeFileSync(path.resolve(path.resolve(eslintRuleDir, '../'), 'index.js'), `${getTemplateHeaderComment()}${libData}`)
+  fs.writeFileSync(srcRulesIndexPath, `${getTemplateHeaderComment()}${srcData}`)
 }
 
 generateRuleCode()

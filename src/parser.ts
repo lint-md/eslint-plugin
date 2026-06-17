@@ -1,5 +1,5 @@
 /*
- * File: constants.ts
+ * File: parser.ts
  * Description: 面向 md 文件的 eslint 自定义 parser
  * Created: 2021-3-8 21:40:24
  * Author: yuzhanglong

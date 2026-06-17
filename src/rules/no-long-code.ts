@@ -1,15 +1,4 @@
-/*
- * File: no-long-code.js
- * Description: no-long-code rules（代码长度限制）
- *
- * 关于 rule 的详细信息，请参考 lint-md 文档
- *
- * Created: 2021-3-9 10:16:05
- * Author: yuzhanglong
- * Email: yuzl1123@163.com
- */
-import { getDescription, lint } from '@lint-md/core'
-
+import { lintMarkdown } from '@lint-md/core'
 
 module.exports = {
   meta: {
@@ -23,7 +12,7 @@ module.exports = {
             'type': 'number'
           },
           'exclude': {
-            'type': 'Array'
+            'type': 'array'
           }
         },
         'additionalProperties': false
@@ -34,25 +23,21 @@ module.exports = {
     return {
       MarkdownNode(node) {
         if (node.value) {
-          // 调用 lint 函数
           const opt = Array.isArray(context.options) && context.options.length ? context.options[0] : {}
-          const errors = lint(node.value, {
-            // 将第一个参数设为 null 我们可以通过 .eslintrc.js 决定之
-            'no-long-code': [
-              null, {
-                'length': opt.length,
-                'exclude': opt.exclude || []
-              }
-            ]
-          })
-          const resultErr = errors.filter(e => e.type === 'no-long-code')
+          const ruleConfig = {
+            'no-long-code': [1, {
+              'length': opt.length,
+              'exclude': opt.exclude || []
+            }] as [number, Record<string, any>]
+          }
+          const { lintResult } = lintMarkdown(node.value, ruleConfig)
+          const resultErr = lintResult.filter(e => e.name === 'no-long-code')
           for (let err of resultErr) {
-            const describe = getDescription(err.type)
             context.report({
-              message: describe.message,
+              message: err.message,
               loc: {
-                start: err.start,
-                end: err.end
+                start: err.loc.start,
+                end: err.loc.end
               }
             })
           }

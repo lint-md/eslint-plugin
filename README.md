@@ -68,6 +68,28 @@ eslint --ext .md ./
 
 > TIP: WebStorm 2021.1 及以上版本的 ESLint 插件支持自定义检测文件后缀名。
 
+## 开发指南
+
+```shell
+# 安装依赖
+pnpm install
+
+# 编译源码
+pnpm build
+
+# 同步 lint-md 规则（依赖 build 完成）
+pnpm sync-rules
+
+# 对源码执行 lint
+pnpm lint
+```
+
+日常开发流程（一次执行）：
+
+```shell
+pnpm build && pnpm sync-rules && pnpm lint
+```
+
 ## 更多示例
 
 更多案例与配置请查看仓库 `examples` 目录。

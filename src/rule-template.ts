@@ -1,4 +1,4 @@
-import { getDescription, lint, fix as baseFixer } from '@lint-md/core'
+import { lintMarkdown } from '@lint-md/core'
 
 // 该 rule 是否可以 fix，供模板替换
 // @ts-ignore
@@ -15,10 +15,10 @@ module.exports = {
     const getFixer = (node) => {
       return FIXABLE ? {
         fix: (fixer) => {
-          const newMarkdown = baseFixer(node.value)
+          const { fixedResult } = lintMarkdown(node.value)
           return fixer.replaceTextRange(
             [0, node.value.length - 1],
-            newMarkdown
+            fixedResult.result
           )
         }
       } : {}
@@ -27,16 +27,14 @@ module.exports = {
     return {
       MarkdownNode(node) {
         if (node.value) {
-          // 调用 lint 函数
-          const errors = lint(node.value)
-          const resultErr = errors.filter(e => e.type === '$MD_LINT_RULE_NAME$')
+          const { lintResult } = lintMarkdown(node.value)
+          const resultErr = lintResult.filter(e => e.name === '$MD_LINT_RULE_NAME$')
           for (let err of resultErr) {
-            const describe = getDescription(err.type)
             context.report({
-              message: describe.message,
+              message: err.message,
               loc: {
-                start: err.start,
-                end: err.end
+                start: err.loc.start,
+                end: err.loc.end
               },
               ...getFixer(node)
             })

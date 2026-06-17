@@ -1,1 +1,2 @@
-npm run commitlint:lint
+#!/bin/sh
+pnpm run commitlint:lint

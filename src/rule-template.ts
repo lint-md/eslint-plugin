@@ -15,7 +15,7 @@ module.exports = {
     const getFixer = (node) => {
       return FIXABLE ? {
         fix: (fixer) => {
-          const { fixedResult } = lintMarkdown(node.value)
+          const { fixedResult } = lintMarkdown(node.value, {}, true)
           return fixer.replaceTextRange(
             [0, node.value.length - 1],
             fixedResult.result
@@ -27,7 +27,7 @@ module.exports = {
     return {
       MarkdownNode(node) {
         if (node.value) {
-          const { lintResult } = lintMarkdown(node.value)
+          const { lintResult } = lintMarkdown(node.value, {}, false)
           const resultErr = lintResult.filter(e => e.name === '$MD_LINT_RULE_NAME$')
           for (let err of resultErr) {
             context.report({

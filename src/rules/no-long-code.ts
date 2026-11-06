@@ -30,7 +30,7 @@ module.exports = {
               'exclude': opt.exclude || []
             }] as [number, Record<string, any>]
           }
-          const { lintResult } = lintMarkdown(node.value, { rules: ruleConfig })
+          const { lintResult } = lintMarkdown(node.value, ruleConfig, false)
           const resultErr = lintResult.filter(e => e.name === 'no-long-code')
           for (let err of resultErr) {
             context.report({

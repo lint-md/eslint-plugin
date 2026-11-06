@@ -56,6 +56,7 @@ module.exports = {
           const { lintResult } = core.lintMarkdown(node.value, ruleConfig, false)
           const resultErr = lintResult.filter(e => e.name === RULE_NAME)
           const fixes = FIXABLE && resultErr.length ? getFixes(node) : []
+          // ESLint merges fix arrays from one report. Apply remaining edits in later passes.
           resultErr.forEach((err, index) => {
             const fix = fixes[index]
             context.report({
@@ -67,14 +68,6 @@ module.exports = {
               ...(fix ? { fix: fixer => fixer.replaceTextRange(fix.range, fix.text) } : {})
             })
           })
-          for (const fix of fixes.slice(resultErr.length)) {
-            const loc = context.getSourceCode().getLocFromIndex(fix.range[0])
-            context.report({
-              message: resultErr[0].message,
-              loc: { start: loc, end: loc },
-              fix: fixer => fixer.replaceTextRange(fix.range, fix.text)
-            })
-          }
         }
       }
     }

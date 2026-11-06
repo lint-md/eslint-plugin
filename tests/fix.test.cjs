@@ -77,6 +77,26 @@ test('one rule keeps separate fixes on both sides of another rule', () => {
   assert.deepEqual(result.messages, [])
 })
 
+for (const [name, input, expected] of [
+  ['no-space-in-inline-code', '` hello `', '`hello`'],
+  ['no-space-in-link', '[ hello ](https://example.com)', '[hello](https://example.com)']
+]) {
+  test(`${name} reports one problem for two text edits`, () => {
+    const rules = { [name]: 'error' }
+    const messages = new Linter().verify(input, makeConfig(rules), { filename: 'example.md' })
+    assert.equal(messages.length, 1)
+    assert.equal(messages[0].ruleId, `@lint-md/${name}`)
+
+    const first = runFix(input, rules)
+    assert.equal(first.output, expected)
+    assert.deepEqual(first.messages, [])
+
+    const second = runFix(first.output, rules)
+    assert.equal(second.output, expected)
+    assert.equal(second.fixed, false)
+  })
+}
+
 test('more than ten rules fix separate locations within the ESLint pass limit', () => {
   const input = [
     '# 标题。',

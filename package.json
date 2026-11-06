@@ -16,7 +16,7 @@
     "clean": "rimraf lib esm"
   },
   "dependencies": {
-    "@lint-md/core": "^2.0.0",
+    "@lint-md/core": "^2.6.0",
     "diff": "5.2.2"
   },
   "devDependencies": {
@@ -36,6 +36,9 @@
   },
   "peerDependencies": {
     "eslint": ">=7.0.0"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "files": [
     "lib",

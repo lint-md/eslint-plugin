@@ -22,7 +22,7 @@ module.exports = {
   },
   create(context) {
     const getFixes = (node) => {
-      const { fixedResult } = core.lintMarkdown(node.value, ruleConfig, true)
+      const { fixedResult } = core.fixMarkdown(node.value, { rules: ruleConfig })
       if (fixedResult.result === node.value) return []
 
       const fixes = []
@@ -53,7 +53,7 @@ module.exports = {
     return {
       MarkdownNode(node) {
         if (node.value) {
-          const { lintResult } = core.lintMarkdown(node.value, ruleConfig, false)
+          const { lintResult } = core.lintMarkdown(node.value, { rules: ruleConfig })
           const resultErr = lintResult.filter(e => e.name === RULE_NAME)
           const fixes = FIXABLE && resultErr.length ? getFixes(node) : []
           // ESLint merges fix arrays from one report. Apply remaining edits in later passes.

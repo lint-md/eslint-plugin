@@ -3,8 +3,7 @@
  * Description: 工具函数模块
  */
 
-import * as fs from 'fs'
-import * as path from 'path'
+import * as core from '@lint-md/core'
 import { ARGS_RULES } from './constants'
 
 
@@ -17,17 +16,15 @@ export const getTemplateHeaderComment = (rule?: string, time?: string, command =
  *
  * Please refer to the lint-md documentation for details about this rule
  *
- * @created: ${time || new Date().toDateString()} ${!rule ? '' : `\n * @rule: ${rule || 'undefined'}`}
+ * @created: ${time || new Date().toDateString()}${rule ? `\n * @rule: ${rule}` : ''}
  * @see: https://github.com/lint-md/lint-md
  */\n\n`
 }
 
-// 获取 lint-md 下的所有 rules
+// Read rule names from Core exports. Its rules directory also contains support files.
 export const getTotalRuleNames = () => {
-  const ruleDir = path.dirname(require.resolve('@lint-md/core/lib/rules/index'))
-  const ruleFiles = fs.readdirSync(ruleDir)
-  return ruleFiles
-    .filter(res => (res !== 'index.js' && res.endsWith('.js') && !res.endsWith('.d.ts') && !res.endsWith('.map')))
-    .map(data => data.slice(0, -3))
+  return Object.values(core)
+    .filter((rule: any) => rule?.meta?.name)
+    .map((rule: any) => rule.meta.name)
     .filter(data => ARGS_RULES.indexOf(data) < 0)
 }

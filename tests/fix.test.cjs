@@ -4,6 +4,18 @@ const { Linter } = require('eslint')
 const plugin = require('../lib')
 const parser = require('../lib/parser')
 
+test('generated rules match Core rule exports', () => {
+  for (const name of [
+    'no-half-width-punctuation',
+    'no-multiple-blank-lines',
+    'require-trailing-spaces',
+    'space-around-link'
+  ]) {
+    assert.ok(plugin.rules[name])
+  }
+  assert.equal(plugin.rules['default-rule-severities'], undefined)
+})
+
 function runFix(input, rules) {
   const linter = new Linter()
   const config = makeConfig(rules)
@@ -38,6 +50,13 @@ test('one enabled rule only changes its own content', () => {
   const input = '# 标题。\n\n你好......尾'
   const result = runFix(input, { 'use-standard-ellipsis': 'error' })
   assert.equal(result.output, '# 标题。\n\n你好……尾')
+  assert.deepEqual(result.messages, [])
+})
+
+test('a newly generated rule runs when Core disables it by default', () => {
+  const input = '第一段\n\n\n\n第二段'
+  const result = runFix(input, { 'no-multiple-blank-lines': 'error' })
+  assert.equal(result.output, '第一段\n\n第二段')
   assert.deepEqual(result.messages, [])
 })
 
@@ -78,7 +97,7 @@ test('one rule keeps separate fixes on both sides of another rule', () => {
 })
 
 for (const [name, input, expected] of [
-  ['no-space-in-inline-code', '` hello `', '`hello`'],
+  ['no-space-in-inline-code', '`  hello  `', '`hello`'],
   ['no-space-in-link', '[ hello ](https://example.com)', '[hello](https://example.com)']
 ]) {
   test(`${name} reports one problem for two text edits`, () => {

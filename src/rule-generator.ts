@@ -45,8 +45,8 @@ const generateRuleCode = () => {
   libData += '}'
   srcData += '}'
 
-  fs.writeFileSync(path.resolve(path.resolve(eslintRuleDir, '../'), 'index.js'), `${getTemplateHeaderComment()}${libData}`)
-  fs.writeFileSync(srcRulesIndexPath, `${getTemplateHeaderComment()}${srcData}`)
+  fs.writeFileSync(path.resolve(path.resolve(eslintRuleDir, '../'), 'index.js'), `${getTemplateHeaderComment()}${libData}\n`)
+  fs.writeFileSync(srcRulesIndexPath, `${getTemplateHeaderComment()}${srcData}\n`)
 }
 
 generateRuleCode()

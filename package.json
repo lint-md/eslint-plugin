@@ -10,12 +10,14 @@
     "husky:prepare": "husky",
     "commitlint:lint": "commitlint -e ./.git/COMMIT_EDITMSG",
     "lint": "eslint --max-warnings 0 ./src",
+    "test": "pnpm build && pnpm sync-rules && node --test tests/*.test.cjs",
     "lib:cjs": "tsc -p tsconfig.json --target ESNext --module commonjs --outDir lib",
     "build": "npm run clean && run-p lib:*",
     "clean": "rimraf lib esm"
   },
   "dependencies": {
-    "@lint-md/core": "^2.0.0"
+    "@lint-md/core": "^2.0.0",
+    "diff": "5.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

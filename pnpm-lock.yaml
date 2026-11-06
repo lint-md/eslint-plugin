@@ -11,6 +11,9 @@ importers:
       '@lint-md/core':
         specifier: ^2.0.0
         version: 2.0.0
+      diff:
+        specifier: 5.2.2
+        version: 5.2.2
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.1
